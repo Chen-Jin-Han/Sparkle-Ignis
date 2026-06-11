@@ -1,0 +1,18 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV SPARKLE_HOST=0.0.0.0
+ENV SPARKLE_PORT=8080
+
+WORKDIR /app
+
+COPY sparkle ./sparkle
+COPY README.md ./README.md
+COPY multi_agents/README.md ./multi_agents/README.md
+
+RUN mkdir -p /app/outputs/sparkle
+
+EXPOSE 8080
+
+CMD ["python", "-m", "sparkle.web_app"]

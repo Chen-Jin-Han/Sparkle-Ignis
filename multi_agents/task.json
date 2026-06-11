@@ -1,0 +1,22 @@
+{
+  "query": "Sparkle 技术调研与报告生成多 Agent 工作流系统",
+  "max_sections": 6,
+  "max_plan_revisions": 3,
+  "publish_formats": {
+    "markdown": true,
+    "pdf": false,
+    "docx": false
+  },
+  "include_human_feedback": false,
+  "follow_guidelines": true,
+  "model": "gpt-4o",
+  "guidelines": [
+    "The report MUST be written in Chinese",
+    "The AI is named Sparkle",
+    "All generated AI agents MUST use fire-related English names: Ignis, Ember, Flare, Blaze, Cinder, Forge, Kindle, Pyre",
+    "The report MUST cover technical research, source retrieval, planning, parallel section drafting, review, revision, writing, and publishing",
+    "The report MUST be suitable for technical interview explanation and emphasize engineering implementation, observability, scalability, and risk control",
+    "The report SHOULD connect to the resume background: CrewAI, Linux, Docker, Kubernetes, Nginx, MySQL, Redis, Flutter, Vue, PyTorch, TensorFlow, MindSpore, Transformer, BERT, GPT, YOLO, CNN, RNN/LSTM, GAN, Mamba, and LLaMA-Factory LoRA"
+  ],
+  "verbose": true
+}

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sparkle Multi-Agent Research</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="control-panel" aria-label="Sparkle 控制台">
+          <div class="brand">
+            <div class="brand-mark">S</div>
+            <div>
+              <p class="eyebrow">Sparkle</p>
+              <h1>技术调研与报告生成工作台</h1>
+            </div>
+          </div>
+
+          <form id="run-form" class="run-form">
+            <label for="query">调研主题</label>
+            <textarea id="query" name="query" rows="4">Sparkle 技术调研与报告生成多 Agent 工作流系统</textarea>
+
+            <div class="form-grid">
+              <label>
+                报告章节
+                <input id="max-sections" name="max-sections" type="number" min="1" max="6" value="6" />
+              </label>
+
+              <label class="toggle">
+                <input id="use-deepseek" name="use-deepseek" type="checkbox" />
+                <span>使用 DeepSeek 润色</span>
+              </label>
+            </div>
+
+            <button id="run-button" type="submit">启动 Sparkle 工作流</button>
+          </form>
+
+          <div class="status-strip">
+            <div>
+              <span class="status-label">DeepSeek</span>
+              <strong id="deepseek-status">检测中</strong>
+            </div>
+            <div>
+              <span class="status-label">模型</span>
+              <strong id="model-status">-</strong>
+            </div>
+          </div>
+
+          <section class="agent-panel">
+            <div class="section-heading">
+              <p class="eyebrow">Agents</p>
+              <h2>火焰团队</h2>
+            </div>
+            <div id="agents" class="agent-list"></div>
+          </section>
+        </aside>
+
+        <section class="result-panel" aria-live="polite">
+          <div class="result-header">
+            <div>
+              <p class="eyebrow">Workflow Output</p>
+              <h2 id="result-title">等待启动</h2>
+            </div>
+            <div id="artifact-links" class="artifact-links"></div>
+          </div>
+
+          <div id="progress" class="progress hidden">
+            <div class="progress-bar"><span></span></div>
+            <p>Ignis 正在调度 Sparkle 多 Agent 工作流...</p>
+          </div>
+
+          <div class="metrics">
+            <div>
+              <span>Agent 步骤</span>
+              <strong id="metric-agents">0</strong>
+            </div>
+            <div>
+              <span>章节数</span>
+              <strong id="metric-sections">0</strong>
+            </div>
+            <div>
+              <span>产物</span>
+              <strong id="metric-artifacts">0</strong>
+            </div>
+          </div>
+
+          <div class="output-grid">
+            <section class="timeline">
+              <div class="section-heading">
+                <p class="eyebrow">Trace</p>
+                <h2>Agent 执行轨迹</h2>
+              </div>
+              <ol id="trace-list"></ol>
+            </section>
+
+            <section class="report-preview">
+              <div class="section-heading">
+                <p class="eyebrow">Report</p>
+                <h2>报告预览</h2>
+              </div>
+              <article id="report" class="report-body">
+                <p class="empty-state">输入主题后启动工作流，Sparkle 会在这里展示生成的技术报告。</p>
+              </article>
+            </section>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

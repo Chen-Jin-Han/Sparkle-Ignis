@@ -1,0 +1,21 @@
+name: sparkle-ignis
+
+services:
+  sparkle:
+    build:
+      context: .
+      dockerfile: Dockerfile.sparkle
+    image: sparkle-ignis:local
+    container_name: sparkle-ignis
+    environment:
+      SPARKLE_PORT: 8080
+      SPARKLE_USE_DEEPSEEK: ${SPARKLE_USE_DEEPSEEK:-false}
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-v4-flash}
+      DEEPSEEK_TIMEOUT_SECONDS: ${DEEPSEEK_TIMEOUT_SECONDS:-60}
+    ports:
+      - "${SPARKLE_PORT:-8080}:8080"
+    volumes:
+      - ./outputs:/app/outputs
+    restart: unless-stopped

@@ -1,0 +1,23 @@
+{
+  "query": "Sparkle 技术调研与报告生成多 Agent 工作流系统",
+  "max_sections": 6,
+  "source_paths": [
+    "sparkle/research_brief.md",
+    "multi_agents/README.md",
+    "README.md"
+  ],
+  "output_dir": "outputs/sparkle",
+  "publish_formats": {
+    "markdown": true,
+    "json": true
+  },
+  "guidelines": [
+    "报告必须使用中文。",
+    "报告必须体现 Sparkle 这个 AI 名称。",
+    "所有 AI Agent 必须使用与火焰相关的英文名：Ignis、Ember、Flare、Blaze、Cinder、Forge、Kindle、Pyre。",
+    "报告必须覆盖技术调研、资料检索、分节撰写、质量审查、自动修订、报告发布这六个工作流环节。",
+    "报告必须结合简历中的 CrewAI 多 Agent、Linux、Docker、Kubernetes、Nginx、MySQL、Redis、Flutter、Vue、PyTorch、TensorFlow、MindSpore、Transformer、BERT、GPT、YOLO、CNN、RNN/LSTM、GAN、Mamba、LLaMA-Factory LoRA 经历。",
+    "报告必须适合面试讲解，强调工程落地、可观测性、扩展性和风险控制。"
+  ],
+  "verbose": true
+}
