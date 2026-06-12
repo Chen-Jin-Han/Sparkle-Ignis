@@ -1,0 +1,19 @@
+services:
+  sparkle-ignis:
+    build:
+      context: .
+    image: sparkle-ignis:first-generation
+    container_name: sparkle-ignis
+    ports:
+      - "8765:8765"
+    environment:
+      DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+      DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-deepseek-chat}
+      DEEPSEEK_BASE_URL: ${DEEPSEEK_BASE_URL:-https://api.deepseek.com}
+      SPARKLE_RETRIEVAL_TOP_K: ${SPARKLE_RETRIEVAL_TOP_K:-8}
+    volumes:
+      - ./LLM:/app/LLM:ro
+      - sparkle_ignis_index:/app/.sparkle/index
+
+volumes:
+  sparkle_ignis_index:

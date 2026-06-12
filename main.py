@@ -1,0 +1,5 @@
+from sparkle_researcher.api.server import main
+
+
+if __name__ == "__main__":
+    main()

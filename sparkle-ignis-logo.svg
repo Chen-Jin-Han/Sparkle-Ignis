@@ -1,0 +1,40 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Sparkle-Ignis Logo</title>
+  <desc id="desc">A warm Sparkle AI logo combining a flame, star spark, and S monogram.</desc>
+  <defs>
+    <linearGradient id="bg" x1="36" y1="24" x2="220" y2="232" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF5E8"/>
+      <stop offset="0.45" stop-color="#FFD8BA"/>
+      <stop offset="1" stop-color="#FFB052"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="84" y1="42" x2="177" y2="218" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE26B"/>
+      <stop offset="0.32" stop-color="#FF9F3A"/>
+      <stop offset="0.72" stop-color="#E8492C"/>
+      <stop offset="1" stop-color="#9C2743"/>
+    </linearGradient>
+    <linearGradient id="inner" x1="118" y1="92" x2="151" y2="198" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF6B2"/>
+      <stop offset="1" stop-color="#FF6F3D"/>
+    </linearGradient>
+    <filter id="softShadow" x="12" y="10" width="232" height="238" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#8C321D" flood-opacity="0.22"/>
+    </filter>
+  </defs>
+
+  <rect x="20" y="18" width="216" height="220" rx="52" fill="url(#bg)"/>
+  <path d="M42 82C66 54 91 42 127 39C166 36 194 48 215 75" stroke="#FFF9F0" stroke-width="7" stroke-linecap="round" opacity="0.72"/>
+  <path d="M39 182C65 210 96 224 133 220C169 216 197 198 219 166" stroke="#C23B2B" stroke-width="7" stroke-linecap="round" opacity="0.24"/>
+
+  <g filter="url(#softShadow)">
+    <path d="M130 218C88 202 66 174 68 139C70 108 91 87 104 67C111 56 113 45 111 32C149 55 163 84 155 118C171 104 180 88 181 70C204 96 213 125 207 154C199 194 165 222 130 218Z" fill="url(#flame)"/>
+    <path d="M135 205C111 194 99 176 101 153C103 132 119 119 127 103C132 94 132 87 130 78C154 96 164 117 157 139C168 132 175 122 177 110C190 128 194 148 189 166C182 190 159 207 135 205Z" fill="url(#inner)" opacity="0.9"/>
+  </g>
+
+  <path d="M134 68L142 91L166 99L142 107L134 130L126 107L102 99L126 91L134 68Z" fill="#FFF7C7"/>
+  <path d="M196 37L201 51L216 56L201 61L196 76L191 61L176 56L191 51L196 37Z" fill="#FFF9D8"/>
+  <path d="M61 55L65 66L76 70L65 74L61 85L57 74L46 70L57 66L61 55Z" fill="#FFFFFF" opacity="0.9"/>
+
+  <path d="M91 164C105 180 129 188 149 179C166 171 169 154 154 145C143 138 126 138 114 132C96 124 96 104 113 93C130 82 154 87 169 101" stroke="#FFFDF7" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M91 164C105 180 129 188 149 179C166 171 169 154 154 145C143 138 126 138 114 132C96 124 96 104 113 93C130 82 154 87 169 101" stroke="#7E293B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+</svg>
