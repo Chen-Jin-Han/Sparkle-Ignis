@@ -93,7 +93,12 @@
           placeholder="输入问题，例如：我想知道 KimiAI 框架的演进过程"
           @keydown.enter.exact.prevent="sendQuestion"
         />
-        <button :disabled="busy || !question.trim()" type="submit" aria-label="发送">↑</button>
+        <button class="send-button" :disabled="busy || !question.trim()" type="submit" aria-label="发送" title="发送">
+          <svg class="send-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 19V5" />
+            <path d="M6.5 10.5 12 5l5.5 5.5" />
+          </svg>
+        </button>
       </form>
     </main>
   </div>
