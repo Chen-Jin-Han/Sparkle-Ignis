@@ -1,5 +1,87 @@
 # Sparkle Ignis
 
+![Sparkle Ignis Logo](./sparkle-ignis-logo.svg)
+
+## Sparkle AI Series
+
+Sparkle Ignis 是 Sparkle AI 系列的第一代，也是这个系列的起点。
+
+这个系列的长期设想不是只做一个普通问答工具，而是逐步构建一组具备明确分工、可组合、可审查、可扩展的 AI Agent。第一代 Ignis 的目标是先解决一个清晰场景：让系统能够阅读、理解和比较大模型技术报告，并把这些技术文档沉淀为可查询的专业知识网络。
+
+第一代命名为 **Ignis**，含义上对应“火种”。它承担 Sparkle AI 系列的基础能力验证：
+
+- 建立文档知识接入能力：把 PDF 技术报告转化为可检索、可引用的知识片段。
+- 建立多 Agent 协作能力：让不同模型家族拥有各自的专业 Agent。
+- 建立意图路由能力：判断用户问题应该由单个 Agent 回答，还是由多个 Agent 综合回答。
+- 建立边界控制能力：问题与 LLM 技术文档无关时拒答。
+- 建立答案审查能力：回答生成后进行二次审核，降低无依据输出。
+- 建立产品形态：使用暖色调 Vue 前端和 Sparkle Ignis 图标，作为 Sparkle AI 系列的第一代界面基线。
+
+后续 Sparkle AI 系列可以继续扩展到更多方向，例如论文研究 Agent、代码工程 Agent、产品分析 Agent、行业情报 Agent、多模态资料 Agent，以及更完整的个人知识操作系统。Ignis 先把“技术文档研究”这个核心能力做扎实。
+
+### 第一代 AI 定位
+
+| 项目 | 定位 |
+| --- | --- |
+| 系列名称 | Sparkle AI Series |
+| 第一代名称 | Sparkle Ignis |
+| 核心能力 | LLM 技术文档研究、多 Agent RAG、技术路线对比 |
+| 主要输入 | `LLM/` 目录中的 PDF 技术报告 |
+| 主要输出 | 有证据来源的中文技术回答、对比总结、演进分析 |
+| 关键约束 | 只回答与 LLM 技术文档相关的问题 |
+| 模型接口 | DeepSeek API，可退回本地 RAG 摘要模式 |
+| 前端风格 | Vue、暖色调、简洁、面向研究任务 |
+
+### Agent 架构
+
+Sparkle Ignis 第一代采用多级 Agent 架构。底层是每个模型家族的文档 Agent，上层是负责审查、路由、综合和复核的控制 Agent。
+
+```mermaid
+flowchart TD
+    U[用户问题] --> G[相关性审查 Agent]
+    G -->|无关| R[拒答]
+    G -->|相关| I[意图理解 Agent]
+
+    I -->|单一模型问题| A1[目标 LLM 文档 Agent]
+    I -->|多模型对比问题| A2[多个 LLM 文档 Agent]
+
+    A1 --> K1[RAG 检索: 对应 PDF 全文索引]
+    A2 --> K2[RAG 检索: 多个 Agent 全文索引]
+
+    K1 --> D1[下游 Agent 答案]
+    K2 --> D2[多个下游 Agent 答案]
+
+    D1 --> Q[答案审核 Agent]
+    D2 --> S[综合 Agent]
+    S --> Q
+
+    Q --> O[最终回答 + 思考摘要 + 证据来源]
+```
+
+当前内置的下游 Agent 来自 `LLM/` 目录结构：
+
+```text
+LLM/
+  ChatGPT/   -> ChatGPT Agent
+  Claude/    -> Claude Agent
+  DeepSeek/  -> DeepSeek Agent
+  Gemini/    -> Gemini Agent
+  Gemma/     -> Gemma Agent
+  GLM/       -> GLM Agent
+  Kimi/      -> Kimi Agent
+  LLaMA/     -> LLaMA Agent
+  MiniMax/   -> MiniMax Agent
+  Qwen/      -> Qwen Agent
+  Seed/      -> Seed Agent
+```
+
+上层控制 Agent：
+
+- **相关性审查 Agent**：判断问题是否属于 LLM 技术文档范围。
+- **意图理解 Agent**：判断问题是单 Agent 问题还是多 Agent 综合问题。
+- **综合 Agent**：整合多个下游 Agent 的结论，形成横向对比。
+- **答案审核 Agent**：检查答案是否有证据支持、是否规范、是否需要修正。
+
 Sparkle Ignis 是 Sparkle AI 系列的第一代原型系统，定位为面向大模型技术文档的多级 Agent 研究台。项目会扫描 `LLM/` 目录中的 PDF 技术报告，为每个模型家族或厂商自动创建文档 Agent，并通过 RAG、意图路由、相关性审查和答案审核完成问答。
 
 当前版本聚焦以下目标：
