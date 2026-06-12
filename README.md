@@ -307,7 +307,23 @@ npm.cmd run build
 
 ### 3. 配置 DeepSeek
 
-PowerShell：
+推荐在项目根目录创建 `.env` 文件：
+
+```env
+DEEPSEEK_API_KEY=你的 DeepSeek API Key
+DEEPSEEK_MODEL=deepseek-chat
+DEEPSEEK_BASE_URL=https://api.deepseek.com
+```
+
+项目已内置 `.env.example`，可以复制后修改：
+
+```powershell
+Copy-Item .env.example .env
+```
+
+`.env` 已被 `.gitignore` 忽略，不会提交到 GitHub。后端启动时会自动读取 `.env`，Docker Compose 也会自动读取 `.env` 并注入容器。
+
+也可以用 PowerShell 临时设置：
 
 ```powershell
 $env:DEEPSEEK_API_KEY="你的 DeepSeek API Key"
